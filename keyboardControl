@@ -1,0 +1,57 @@
+#include <Servo.h> // include server library
+
+Servo ser; // create servo object to control a servo
+
+int poser = 0; // initial position of server
+boolean a;
+boolean d;
+
+void setup() {
+
+Serial.begin(9600); // Serial comm begin at 9600bps
+
+ser.attach(3);// server is connected at pin 3
+a = false;
+d = false;
+ser.write(0);
+}
+
+void loop() {
+
+
+while(Serial.available())
+// then read the serial value
+{
+if (Serial.read() == 'E') //if value input is equals to d
+{
+
+ser.write(180);
+
+
+
+}
+
+//delay for the servo to get to the position
+
+delay(30);
+
+
+if (Serial.read() == 'D') //if value input is equals to m
+{
+
+ser.write(0);
+
+}
+
+
+
+  
+delay(20);
+ //than position of servo motor decreases by 1 (clockwise)
+
+
+}
+
+}
+
+
